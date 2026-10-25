@@ -1,33 +1,29 @@
-import Feather from '@expo/vector-icons/Feather';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Tabs } from "expo-router";
+import { Stack } from 'expo-router';
+import { colors } from './constants/cores';
 
-export default function layout(){
-    return(
-        <Tabs>
-            <Tabs.Screen
-                name="index"
-                options={{
-                    title: "Inicio",
-                    tabBarIcon: () => <Feather name="home" size={24} color="black" />
-                }}
-            />
+export default function RootLayout() {
+  return (
+    <Stack>
+      <Stack.Screen 
+        name="index" 
+        options={{ headerShown: false }} 
+      />
 
-            <Tabs.Screen
-                name="estante"
-                options={{
-                    title: "Estante",
-                    tabBarIcon: () => <Ionicons name="library" size={24} color="black" />
-                }}
-            />
+      <Stack.Screen 
+        name="inicio" 
+        options={{ headerShown: false }} 
+      />
 
-            <Tabs.Screen
-                name="perfil"
-                options={{
-                    title: "Perfil",
-                    tabBarIcon: () => <Feather name="user" size={24} color="black" />
-                }}
-            />
-        </Tabs>
-    )
+      <Stack.Screen 
+        name="[id]" 
+        options={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerStyle: { backgroundColor: colors.background },
+          headerTintColor: colors.texto,
+          headerBackTitle: 'Voltar',
+        }} 
+      />
+    </Stack>
+  );
 }

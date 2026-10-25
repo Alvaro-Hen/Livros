@@ -1,57 +1,73 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { colors } from '../app/constants/cores';
 
-export default function Home(){
-  return(
-  <ScrollView style={styles.container}>
-    <View style={styles.booksWrapper}>
-      <View style={styles.card}>
-        <Text style={styles.title}>Mistborn</Text>
-        <Image source={require("../../assets/images/91U6rc7u0yL._AC_UF1000,1000_QL80_.jpg")} style={styles.coverImage}/>
+export default function Login() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Login</Text>
+
+      <View style={styles.inputs}>
+        <Text style={styles.texto}>Usuário</Text>
+        <TextInput 
+          style={styles.input}
+          placeholder="Digite seu usuário" 
+        />
       </View>
-      <View style={styles.card}>
-        <Text style={styles.title}>Memorias do Subsolo</Text>
-        <Image source={require("../../assets/images/81B8n0OCzTL._AC_UF1000,1000_QL80_.jpg")} style={styles.coverImage}/>
+
+      <View style={styles.inputs}>
+        <Text style={styles.texto}>Senha</Text>
+        <TextInput 
+          style={styles.input}
+          placeholder="Digite sua senha"
+        />
       </View>
-      <View style={styles.card}>
-        <Text style={styles.title}>Marina</Text>
-        <Image source={require("../../assets/images/71k-t4AMIRL._AC_UF1000,1000_QL80_.jpg")} style={styles.coverImage}/>
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.title}>Jantar Secreto</Text>
-        <Image source={require("../../assets/images/jantar-secreto_2025-02-18_11-29-38_0_147.jpg")} style={styles.coverImage}/>
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.title}>Ordem Vermelha</Text>
-        <Image source={require("../../assets/images/9157OBqrOuL._UF1000,1000_QL80_.jpg")} style={styles.coverImage}/>
+
+      <View style={styles.botao}>
+        <Button 
+          title="Entrar" 
+          color={colors.primaria}
+          onPress={() => router.replace('/inicio')} 
+        />
       </View>
     </View>
-  </ScrollView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    paddingHorizontal: 28,
+    backgroundColor: colors.background,
   },
-  booksWrapper: {
-    flexDirection: 'row',      
-    flexWrap: 'wrap',            
-    justifyContent: 'center',    
-    gap: 16,                     
-  },
-  card: {
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
+  titulo: {
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 8,
+    textAlign: 'center',
+    color: colors.texto,
+    marginBottom: 36,
   },
-  coverImage: {
-    width: 140,                  
-    height: 210,
+  inputs: {
+    marginBottom: 18,
+  },
+  texto: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.texto,
+    marginBottom: 6,
+  },
+  input: {
+    backgroundColor: colors.area,
+    borderWidth: 1,
+    borderColor: colors.borda,
     borderRadius: 8,
-    resizeMode: 'cover',
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: colors.texto,
+  },
+  botao: {
+    marginTop: 14,
   },
 });
