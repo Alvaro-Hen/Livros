@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { colors } from '../app/constants/cores';
+import { cores } from '../app/constants/cores';
 
 export default function Login() {
   return (
@@ -26,7 +26,7 @@ export default function Login() {
       <View style={styles.botao}>
         <Button 
           title="Entrar" 
-          color={colors.primaria}
+          color={cores.primaria}
           onPress={() => router.replace('/inicio')} 
         />
       </View>
@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 28,
-    backgroundColor: colors.background,
+    backgroundColor: cores.background,
   },
   titulo: {
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: colors.texto,
+    color: cores.texto,
     marginBottom: 36,
   },
   inputs: {
@@ -54,18 +54,18 @@ const styles = StyleSheet.create({
   texto: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.texto,
+    color: cores.texto,
     marginBottom: 6,
   },
   input: {
-    backgroundColor: colors.area,
+    backgroundColor: cores.area,
     borderWidth: 1,
-    borderColor: colors.borda,
+    borderColor: cores.borda,
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 16,
-    color: colors.texto,
+    color: cores.texto,
   },
   botao: {
     marginTop: 14,

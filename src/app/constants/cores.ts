@@ -1,4 +1,4 @@
-export const colors = {
+export const cores = {
   primaria: '#E06D3B',       // Laranja Queimado / Terracota (Botões e destaques)
   secundaria: '#F4A261',     // Âmbar Suave (Acentos e detalhes)
   background: '#FBF8F2',    // Creme / Papel Natural (Fundo da tela)

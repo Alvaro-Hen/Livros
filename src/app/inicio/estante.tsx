@@ -1,14 +1,26 @@
+import { BarraAcoes } from '@/components/barraAcoes';
 import { livros } from '@/data/livros';
 import { router } from 'expo-router';
+import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../constants/cores';
+import { cores } from '../constants/cores';
 
 export default function Home(){
+
+  //Filtrando apenas por fantasia. Ter varios filtros é muito dificil kkkkkkk
+  const [comFiltro, setComFiltro] = useState(false);
+
+  const livrosMostrar = comFiltro ? livros.filter((livro) => livro.genero?.toLowerCase() === 'fantasia'): livros
+
   return(
   <ScrollView style={styles.container}>
+    <BarraAcoes 
+        onPressFiltrar={() => setComFiltro(!comFiltro)}
+        onPressAdicionar={() => alert('Adicionar')}
+    />
     <View style={styles.containerLivros}>
-      {livros.map((livro) => (
-        <Pressable style={styles.area} key={livro.id} onPress={() => router.push({pathname: '/[id]', params:{id: livro.id}})}>
+      {livrosMostrar.map((livro) => (                                        //Tentei so colocar o caminho mas nao tava indo. Tive que usar o pathname com a variavel
+        <Pressable style={styles.area} key={livro.id} onPress={() => router.push({pathname: '/[id]', params:{id: livro.id}})}> 
           <Image style={styles.imagem} source={livro.imagem}/>
           <Text style={styles.titulo}>{livro.nome}</Text>
         </Pressable>
@@ -21,7 +33,7 @@ export default function Home(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: cores.background,
   },
   containerLivros: {
     flexDirection: 'row',      
@@ -35,7 +47,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.texto,
+    color: cores.texto,
     marginBottom: 8,
   },
   imagem: {

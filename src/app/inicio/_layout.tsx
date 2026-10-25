@@ -2,7 +2,7 @@ import Feather from '@expo/vector-icons/Feather';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs, router } from "expo-router";
 import { Button } from 'react-native';
-import { colors } from '../constants/cores';
+import { cores } from '../constants/cores';
 
 export default function InicioLayout(){
     return(
@@ -11,13 +11,13 @@ export default function InicioLayout(){
                 name="index"
                 options={{
                     title: "Inicio",
-                    headerTintColor: colors.primaria,
-                    headerStyle: {backgroundColor: colors.background},
+                    headerTintColor: cores.primaria,
+                    headerStyle: {backgroundColor: cores.background},
                     tabBarIcon: () => <Feather name="home" size={24} color="black" />,
                     headerTitleAlign: 'center',
                     headerRight: () => <Button 
                     title='sair'
-                    color={colors.primaria}
+                    color={cores.primaria}
                     onPress={() => router.replace('/')}
                     ></Button>
                 }}
@@ -27,7 +27,11 @@ export default function InicioLayout(){
                 name="estante"
                 options={{
                     title: "Estante",
-                    tabBarIcon: () => <Ionicons name="library" size={24} color="black" />
+                    tabBarIcon: () => <Ionicons name="library" size={24} color="black" />,
+                    headerShown: true,
+                    headerTitleAlign: 'center',
+                    headerStyle: { backgroundColor: cores.background },
+                    headerTintColor: cores.primaria
                 }}
             />
 
@@ -35,7 +39,11 @@ export default function InicioLayout(){
                 name="perfil"
                 options={{
                     title: "Perfil",
-                    tabBarIcon: () => <Feather name="user" size={24} color="black" />
+                    tabBarIcon: () => <Feather name="user" size={24} color="black" />,
+                    headerShown: true,
+                    headerTitleAlign: 'center',
+                    headerStyle: { backgroundColor: cores.background },
+                    headerTintColor: cores.primaria
                 }}
             />
         </Tabs>

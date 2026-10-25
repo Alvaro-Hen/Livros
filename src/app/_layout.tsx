@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
-import { colors } from './constants/cores';
+import { cores } from './constants/cores';
 
-export default function RootLayout() {
+export default function Layout() {
   return (
     <Stack>
       <Stack.Screen 
@@ -19,8 +19,8 @@ export default function RootLayout() {
         options={{
           headerShown: true,
           headerTitleAlign: 'center',
-          headerStyle: { backgroundColor: colors.background },
-          headerTintColor: colors.texto,
+          headerStyle: { backgroundColor: cores.background},
+          headerTintColor: cores.texto,
           headerBackTitle: 'Voltar',
         }} 
       />

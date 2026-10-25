@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../constants/cores';
+import { cores } from '../constants/cores';
 
 export default function Home(){
   return(
@@ -17,7 +17,7 @@ export default function Home(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: cores.background,
   },
   containerLivros: {
     flexDirection: 'row',      
